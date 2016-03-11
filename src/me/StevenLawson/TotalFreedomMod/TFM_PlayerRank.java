@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public enum TFM_PlayerRank
 {
-    PUGDev("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Developer]"),
+    PUGDEV("a " + ChatColor.DARK_PURPLE + "Pug Freedom Developer", ChatColor.DARK_PURPLE + "[Developer]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Imposter", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMPOSTER]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
     OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
@@ -65,9 +65,9 @@ public enum TFM_PlayerRank
             return IMPOSTOR;
         }
 
-        if (PUGDev.contains(sender.getName()))
+        if (PUGDEV.contains(sender.getName()))
         {
-            return PUGDev;
+            return PUGDEV;
         }
 
         final TFM_Admin entry = TFM_AdminList.getEntryByIp(TFM_Util.getIp((Player) sender));
