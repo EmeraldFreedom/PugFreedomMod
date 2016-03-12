@@ -7,7 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
+@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH, blockHostConsole = false)
 @CommandParameters(description = "Close server to non-superadmins.", usage = "/<command> [on | off]")
 public class Command_adminmode extends TFM_Command
 {
@@ -33,7 +33,7 @@ public class Command_adminmode extends TFM_Command
             {
                 if (!TFM_AdminList.isSuperAdmin(player))
                 {
-                    player.kickPlayer("Server is now closed to non-superadmins.");
+                    player.kickPlayer("Admin Mode has been enabled. Please relog in a few minutes or so or check the forums.");
                 }
             }
             return true;
