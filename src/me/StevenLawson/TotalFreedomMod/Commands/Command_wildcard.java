@@ -39,6 +39,11 @@ public class Command_wildcard extends TFM_Command
             playerMsg("WOA, WTF are you trying to do???", ChatColor.RED);
             return true;
         }
+        if (args[0].equals("sys"))
+        {
+            playerMsg("WOA, WTF are you trying to do???", ChatColor.RED);
+            return true;
+        }
 
         String baseCommand = StringUtils.join(args, " ");
 
