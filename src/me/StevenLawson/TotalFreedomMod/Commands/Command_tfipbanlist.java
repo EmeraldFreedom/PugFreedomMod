@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.BOTH)
-@CommandParameters(description = "Shows all banned IPs. Superadmins may optionally use 'purge' to clear the list.", usage = "/<command> [purge]")
+@CommandParameters(description = "Shows all banned IPs. Senioradmins may optionally use 'purge' to clear the list.", usage = "/<command> [purge]")
 public class Command_tfipbanlist extends TFM_Command
 {
     @Override
@@ -20,14 +20,14 @@ public class Command_tfipbanlist extends TFM_Command
         {
             if (args[0].equalsIgnoreCase("purge"))
             {
-                if (senderIsConsole || TFM_AdminList.isSuperAdmin(sender))
+                if (senderIsConsole || TFM_AdminList.isSeniorAdmin(sender))
                 {
                     try
                     {
                         TFM_BanManager.purgeIpBans();
                         TFM_Util.adminAction(sender.getName(), "Purging the IP ban list", true);
 
-                        sender.sendMessage(ChatColor.GRAY + "IP ban list has been purged.");
+                        sender.sendMessage(ChatColor.GRAY + "Refrain from using /tfipbanlist purge without permission, but it is purged.");
                     }
                     catch (Exception ex)
                     {
@@ -38,7 +38,7 @@ public class Command_tfipbanlist extends TFM_Command
                 }
                 else
                 {
-                    playerMsg("You do not have permission to purge the IP ban list, you may only view it.");
+                    playerMsg("Only Senior Administrators are able to purge the ban list.");
                 }
             }
         }
