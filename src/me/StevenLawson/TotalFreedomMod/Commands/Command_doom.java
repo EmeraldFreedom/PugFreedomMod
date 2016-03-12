@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
+@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH, blockHostConsole = false)
 @CommandParameters(description = "For the bad Superadmins", usage = "/<command> <playername>")
 public class Command_doom extends TFM_Command
 {
@@ -101,7 +101,7 @@ public class Command_doom extends TFM_Command
                 player.getWorld().createExplosion(player.getLocation(), 4F);
 
                 // kick player
-                player.kickPlayer(ChatColor.RED + "FUCKOFF, and get your shit together!");
+                player.kickPlayer(ChatColor.RED + "You have been banned by /doom.");
             }
         }.runTaskLater(plugin, 3L * 20L);
 
